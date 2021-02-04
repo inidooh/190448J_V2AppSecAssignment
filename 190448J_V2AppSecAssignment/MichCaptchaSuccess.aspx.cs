@@ -13,5 +13,15 @@ namespace _190448J_V2AppSecAssignment
         {
 
         }
+
+        protected void Btn_Login_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("MichLogin.aspx");
+        }
+
+        protected void Btn_Register_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("MichRegistration.aspx");
+        }
     }
 }

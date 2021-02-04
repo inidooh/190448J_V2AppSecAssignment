@@ -136,7 +136,6 @@
                         <td class="auto-style2">Email Address:</td>
                         <td class="auto-style3">
                             <asp:TextBox ID="Tb_Email" runat="server" Width="160px" TextMode="Email"></asp:TextBox>
-                            <asp:Label ID="Lbl_EmailComments" runat="server" Visible="false"></asp:Label>
                         </td>
                         <td class="auto-style3"></td>
                     </tr>
@@ -147,6 +146,13 @@
                             &nbsp;<asp:Label ID="Lbl_PasswordChecker" runat="server"></asp:Label>
                         </td>
                         <td class="auto-style10"></td>
+                    </tr>
+                    <tr>
+                        <td class="auto-style9">&nbsp;</td>
+                        <td class="auto-style10">
+                            <asp:Label ID="Lbl_ErrorMessage" runat="server" Visible="false"></asp:Label>
+                        </td>
+                        <td class="auto-style10">&nbsp;</td>
                     </tr>
                     <tr>
                         <td class="auto-style7">Verification Code</td>

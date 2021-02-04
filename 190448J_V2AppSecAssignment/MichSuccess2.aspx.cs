@@ -22,6 +22,25 @@ namespace _190448J_V2AppSecAssignment
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            // Assignment - Avoid Session Fixation Attack
+            if (Session["LoggedIn"] != null && Session["AuthToken"] != null && Request.Cookies["AuthToken"] != null)
+            {
+                if (!Session["AuthToken"].ToString().Equals(Request.Cookies["AuthToken"].Value))
+                {
+                    Response.Redirect("MichLogin.aspx", false);
+                }
+                else
+                {
+                    Lbl_Message.Text = "Congratulations! You are logged in!";
+                    Lbl_Message.ForeColor = System.Drawing.Color.Green;
+                    Btn_Logout.Visible = true;
+                }
+            }
+            else
+            {
+                Response.Redirect("MichLogin.aspx", false);
+            }
+
             if (Session["emailLogin"] != null)
             {
                 emailLogin = (string) Session["emailLogin"];

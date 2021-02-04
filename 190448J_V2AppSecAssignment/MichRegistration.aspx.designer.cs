@@ -69,15 +69,6 @@ namespace _190448J_V2AppSecAssignment
         protected global::System.Web.UI.WebControls.TextBox Tb_Email;
 
         /// <summary>
-        /// Lbl_EmailComments control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lbl_EmailComments;
-
-        /// <summary>
         /// Tb_Password control.
         /// </summary>
         /// <remarks>
@@ -94,6 +85,15 @@ namespace _190448J_V2AppSecAssignment
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Lbl_PasswordChecker;
+
+        /// <summary>
+        /// Lbl_ErrorMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Lbl_ErrorMessage;
 
         /// <summary>
         /// Image1 control.

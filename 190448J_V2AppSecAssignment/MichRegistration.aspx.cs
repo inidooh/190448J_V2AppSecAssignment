@@ -14,6 +14,7 @@ using System.IO;
 using System.Web.Script.Serialization;
 using System.Web.Services;
 using System.Net;
+using System.Configuration;
 
 namespace _190448J_V2AppSecAssignment
 {
@@ -128,8 +129,7 @@ namespace _190448J_V2AppSecAssignment
         protected void Btn_Submit_Click(object sender, EventArgs e)
         {
             // Assignment - Proper input validation XSS
-            //Lbl_EmailComments.Text = HttpUtility.HtmlEncode(Tb_Email);
-            //Response.Redirect("MichDisplay.aspx?Email=" + HttpUtility.HtmlEncode(Tb_Email.Text));
+             //Response.Redirect("MichDisplay.aspx?Email=" + HttpUtility.HtmlEncode(Tb_Email.Text));
 
             // Assignment - Securing user data and passwords
             string passProtect = Tb_Password.Text.ToString().Trim(); //to get value from textbox
@@ -197,12 +197,35 @@ namespace _190448J_V2AppSecAssignment
             }
             else
             {
-                Lbl_CaptchaMessage.Text = "Your Captcha input is wrong. Please correcly input the Captcha.";
+                Lbl_CaptchaMessage.Text = "Your Captcha input is wrong. Please correctly input the Captcha.";
                 Lbl_CaptchaMessage.ForeColor = System.Drawing.Color.Red;
             }
         }
         public void createAccount()
         {
+            //string DBConnect = ConfigurationManager.ConnectionStrings["ASMichDBConnection"].ConnectionString;
+            //SqlConnection myConn = new SqlConnection(DBConnect);
+
+            //string sqlStmt = "INSERT INTO Account (FirstName, LastName, Birthdate, CreditCard, Email, Password, PasswordHash, PasswordSalt, EmailVerified, IV, Key)" +
+            //                     "VALUES(@paraFirstName, @paraLastName, @paraBirthdate, @paraCreditCard, @paraEmail, @paraPassword, @paraPasswordHash, @paraPasswordSalt, @paraEmailVerified, @paraIV, @paraKey)";
+            //SqlCommand cmd = new SqlCommand(sqlStmt, myConn);
+
+            //cmd.Parameters.AddWithValue("@paraFirstName", Tb_FirstName.Text.Trim());
+            //cmd.Parameters.AddWithValue("@paraLastName", Tb_LastName.Text.Trim());
+            //cmd.Parameters.AddWithValue("@paraBirthdate", Tb_Birthdate.Text.Trim());
+            //cmd.Parameters.AddWithValue("@paraCreditCard", Convert.ToBase64String(encryptData(Tb_CreditCard.Text.Trim())));
+            //cmd.Parameters.AddWithValue("@paraEmail", Tb_Email.Text.Trim());
+            //cmd.Parameters.AddWithValue("@paraPassword", Tb_Password.Text.Trim());
+            //cmd.Parameters.AddWithValue("@paraPasswordHash", finalHash);
+            //cmd.Parameters.AddWithValue("@paraPasswordSalt", salt);
+            //cmd.Parameters.AddWithValue("@paraEmailVerified", DBNull.Value);
+            //cmd.Parameters.AddWithValue("@paraIV", Convert.ToBase64String(IV));
+            //cmd.Parameters.AddWithValue("@paraKey", Convert.ToBase64String(Key));
+
+            //cmd.Connection = myConn;
+            //myConn.Open();
+            //cmd.ExecuteNonQuery();
+            //myConn.Close();
             try
             {
                 using (SqlConnection con = new SqlConnection(ASMichDBConnectionString))
@@ -237,7 +260,7 @@ namespace _190448J_V2AppSecAssignment
                     }
                 }
 
-            }
+        }
             catch (Exception ex)
             {
                 throw new Exception(ex.ToString());
