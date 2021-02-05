@@ -191,7 +191,7 @@
         <script>
             // Assignment - CAPTCHA
             grecaptcha.ready(function () {
-                grecaptcha.execute('6LfRy0caAAAAABOH5Vwuj4toh6vNF3NskOhKLIr2', { action: 'Login' }).then(function (token) {
+                grecaptcha.execute('key', { action: 'Login' }).then(function (token) {
                     document.getElementById("g-recaptcha-response").value = token;
                 });
             });

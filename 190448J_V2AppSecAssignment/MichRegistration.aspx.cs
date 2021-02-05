@@ -1,4 +1,7 @@
-﻿using System;
+﻿// Name: Michelle 
+// Admin No: 190448J
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -42,7 +45,7 @@ namespace _190448J_V2AppSecAssignment
             string captchaResponse = Request.Form["g-recaptcha-response"];
 
             // To send a GET response to Google along with the response and secret key
-            HttpWebRequest req = (HttpWebRequest)WebRequest.Create("https://www.google.com/recaptcha/api/siteverify?secret=6LfRy0caAAAAALVz5VheKF0a3YPjTDpAEvxuHZsy &response=" + captchaResponse);
+            HttpWebRequest req = (HttpWebRequest)WebRequest.Create("https://www.google.com/recaptcha/api/siteverify?secret='secretkey' &response=" + captchaResponse);
 
             try
             {
@@ -203,6 +206,7 @@ namespace _190448J_V2AppSecAssignment
         }
         public void createAccount()
         {
+            // ASSIGNMENT - SQLi prevention attempt
             //string DBConnect = ConfigurationManager.ConnectionStrings["ASMichDBConnection"].ConnectionString;
             //SqlConnection myConn = new SqlConnection(DBConnect);
 
@@ -231,8 +235,9 @@ namespace _190448J_V2AppSecAssignment
                 using (SqlConnection con = new SqlConnection(ASMichDBConnectionString))
                 {
                     using (SqlCommand cmd = new SqlCommand("INSERT INTO Account VALUES(@FirstName, @LastName, @Birthdate, @CreditCard, @Email, @Password, @PasswordHash, @PasswordSalt, @EmailVerified, @IV, @Key)"))
+
                     //string sqlStmt = "INSERT INTO Account (FirstName, LastName, Birthdate, CreditCard, Email, Password, PasswordHash, PasswordSalt, EmailVerified, IV, Key)" +
-                       //                     "VALUES(@paraFirstName, @paraLastName, @paraBirthdate, @paraCreditCard, @paraEmail, @paraPassword, @paraPasswordHash, @paraPasswordSalt, @paraEmailVerified, @paraIV, @paraKey)";
+                    //                     "VALUES(@paraFirstName, @paraLastName, @paraBirthdate, @paraCreditCard, @paraEmail, @paraPassword, @paraPasswordHash, @paraPasswordSalt, @paraEmailVerified, @paraIV, @paraKey)";
                     //SqlCommand cmd = newSqlCommand(sqlStmt, myConn);
                     {
                         using (SqlDataAdapter sda = new SqlDataAdapter())
